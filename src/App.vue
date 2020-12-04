@@ -1,32 +1,56 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div id="app" class="flex">
+    <Sidebar>
+      <ItemSidebar active
+        ><template #icon><i class="bx bx-cloud"></i></template> My cloud
+      </ItemSidebar>
+      <ItemSidebar
+        ><template #icon><i class="bx bx-group"></i></template> Shared file
+      </ItemSidebar>
+      <ItemSidebar
+        ><template #icon><i class="bx bx-star"></i></template> Starred
+      </ItemSidebar>
+      <ItemSidebar
+        ><template #icon><i class="bx bx-trash-alt"></i></template> Recycle bin
+      </ItemSidebar>
+    </Sidebar>
+    <div class="cloud-app flex-auto overflow-auto">
+      <router-view />
     </div>
-    <router-view/>
   </div>
 </template>
 
+<script>
+import Sidebar from "@/components/Sidebar";
+import ItemSidebar from "@/components/ItemSidebar";
+export default {
+  name: "Theme",
+  components: {
+    Sidebar,
+    ItemSidebar,
+  },
+};
+</script>
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(https://images.rappi.com/web/Poppins-Regular.eot),
+    url(https://images.rappi.com/web/Poppins-Regular.eot#iefix)
+      format("embedded-opentype"),
+    url(https://images.rappi.com/web/Poppins-Regular.woff2) format("woff2"),
+    url(https://images.rappi.com/web/Poppins-Regular.woff) format("woff"),
+    url(https://images.rappi.com/web/Poppins-Regular.ttf) format("truetype"),
+    url(https://images.rappi.com/web/Poppins-Regular.svg#svgFontName)
+      format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  font-family: Poppins-Regular, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
