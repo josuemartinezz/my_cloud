@@ -1,7 +1,7 @@
 // tailwind.config.js
 module.exports = {
     purge: ['./src/**/*.{vue,js,ts,jsx,tsx}'],
-    darkMode: 'class',
+    darkMode: 'media',
     theme: {
         extend: {},
         fontFamily: {

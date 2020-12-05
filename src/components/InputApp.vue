@@ -9,7 +9,7 @@
       :placeholder="placeholder"
       :type="type"
       v-model="inputVal"
-      class="w-full transition duration-500 pr-10 rounded-lg p-2 text-xs border-2 hover:border-blue-300 focus:border-blue-300"
+      class="w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white transition duration-500 pr-10 rounded-lg p-2 text-xs border-2 hover:border-blue-300 focus:border-blue-300"
     />
   </div>
 </template>

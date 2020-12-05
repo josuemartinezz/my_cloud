@@ -1,6 +1,13 @@
 <template>
-  <div id="app" v-touch:swipe.right="openNavigation" class="flex max-w-screen-2xl m-auto">
-    <Sidebar class="hidden sm:inline">
+  <div
+    id="app"
+    v-touch:swipe.right="openNavigation"
+    class="flex max-w-screen-2xl m-auto h-screen"
+  >
+    <Sidebar
+      v-if="$route.name != 'Login' && $route.name != 'Register'"
+      class="hidden sm:inline"
+    >
       <template #header>
         <div class="w-20 flex items-center">
           <img
@@ -24,16 +31,21 @@
         ><template #icon><i class="bx bx-trash-alt"></i></template> Recycle bin
       </ItemSidebar>
       <template #footer>
-        <span class="text-gray-600"
+        <span class="text-gray-600 dark:text-white"
           >25.32 GB <span class="text-xs">used</span></span
         >
-        <div class="text-xs text-gray-600 mb-2">79% used - 1.2 GB free</div>
+        <div class="text-xs text-gray-600 mb-2 dark:text-white">79% used - 1.2 GB free</div>
         <ProgressbarApp :value="v" />
         <ButtonApp class="mt-5">Go premium</ButtonApp>
       </template>
     </Sidebar>
     <transition name="slide-fade">
-      <SidebarMovil v-touch:swipe.left="openNavigation" @click="showSidebar = !showSidebar" v-if="showSidebar" class="movil z-50 sm:hidden lg:hidden">
+      <SidebarMovil
+        v-touch:swipe.left="openNavigation"
+        @click="showSidebar = !showSidebar"
+        v-if="showSidebar"
+        class="movil z-50 sm:hidden lg:hidden"
+      >
         <template #header>
           <div class="w-20 flex items-center">
             <img
@@ -44,32 +56,43 @@
             <span class="font-bold text-blue-400">Kisscloud</span>
           </div>
         </template>
-        <ItemSidebar @click="showSidebar = !showSidebar" :active="$route.name == 'Home'" to="/"
+        <ItemSidebar
+          @click="showSidebar = !showSidebar"
+          :active="$route.name == 'Home'"
+          to="/"
           ><template #icon><i class="bx bx-cloud"></i></template> My cloud
         </ItemSidebar>
-        <ItemSidebar @click="showSidebar = !showSidebar" :active="$route.name == 'Shared'" to="/shared"
+        <ItemSidebar
+          @click="showSidebar = !showSidebar"
+          :active="$route.name == 'Shared'"
+          to="/shared"
           ><template #icon><i class="bx bx-group"></i></template> Shared file
         </ItemSidebar>
-        <ItemSidebar @click="showSidebar = !showSidebar" :active="$route.name == 'Starred'" to="/starred"
+        <ItemSidebar
+          @click="showSidebar = !showSidebar"
+          :active="$route.name == 'Starred'"
+          to="/starred"
           ><template #icon><i class="bx bx-star"></i></template> Starred
         </ItemSidebar>
-        <ItemSidebar @click="showSidebar = !showSidebar" :active="$route.name == 'Trash'" to="/trash"
+        <ItemSidebar
+          @click="showSidebar = !showSidebar"
+          :active="$route.name == 'Trash'"
+          to="/trash"
           ><template #icon><i class="bx bx-trash-alt"></i></template> Recycle
           bin
         </ItemSidebar>
         <template #footer>
-          <span class="text-gray-600"
-            >25.32 GB <span class="text-xs">used</span></span
+          <span class="text-gray-600 dark:text-white"
+            >25.32 GB<span class="text-xs dark:text-white">used</span></span
           >
-          <div class="text-xs text-gray-600 mb-2">79% used - 1.2 GB free</div>
+          <div class="text-xs text-gray-600 mb-2 dark:text-white">79% used - 1.2 GB free</div>
           <ProgressbarApp :value="v" />
           <ButtonApp class="mt-5">Go premium</ButtonApp>
         </template>
       </SidebarMovil>
     </transition>
     <div
-      class="cloud-app flex-auto overflow-auto"
-      style="background-color: #f6f9ff"
+      class="cloud-app flex-auto overflow-auto dark:bg-gray-800"
     >
       <transition name="fade">
         <div
@@ -78,8 +101,11 @@
           class="w-full h-screen a bg-black fixed z-30"
         ></div>
       </transition>
-      <Navbar @click="showSidebar = !showSidebar"></Navbar>
-      <router-view class="p-5 " />
+      <Navbar
+        v-if="$route.name != 'Login' && $route.name != 'Register'"
+        @click="showSidebar = !showSidebar"
+      ></Navbar>
+      <router-view class="p-5" />
     </div>
   </div>
 </template>
@@ -109,9 +135,9 @@ export default {
     SidebarMovil,
   },
   methods: {
-    openNavigation(){
-      this.showSidebar = !this.showSidebar
-    }
+    openNavigation() {
+      this.showSidebar = !this.showSidebar;
+    },
   },
   metaInfo: {
     title: "Kisscloud",
@@ -153,6 +179,16 @@ export default {
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+.cloud-app{
+  background-color: #f6f9ff
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
 }
 .a {
   opacity: 0.5;

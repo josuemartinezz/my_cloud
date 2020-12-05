@@ -1,6 +1,6 @@
 <template>
   <div class="login h-screen flex justify-center items-center">
-    <div class="rounded-lg bg-white login-model relative shadow-lg pt-10 pb-10">
+    <div class="rounded-lg dark:bg-gray-700 dark:text-white bg-white login-model relative shadow-lg pt-10 pb-10">
       <div
         :class="isLoad ? 'animate-pulse' : ''"
         class="bg-blue-400 h-1 transtion duration-500 absolute top-0 w-full"

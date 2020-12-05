@@ -43,7 +43,7 @@
     </div>
 
     <button
-      class="fixed bottom-0 text-white m-5 cursor-pointer bg-blue-400 right-0 shadow-lg rounded-full h-12 w-12 flex items-center justify-center"
+      class="fixed focus:outline-none bottom-0 text-white m-5 cursor-pointer bg-blue-400 right-0 shadow-lg rounded-full h-12 w-12 flex items-center justify-center"
     >
       <i class="bx bx-plus bx-sm"></i>
     </button>

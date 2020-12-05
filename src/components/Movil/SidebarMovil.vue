@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <div class="h-screen w-72 fixed z-40 bg-white top-0 flex flex-col">
+    <div class="h-screen w-72 dark:bg-gray-800 fixed z-40 bg-white top-0 flex flex-col">
       <div class="mt-3 p-2">
         <slot name="header"></slot>
       </div>
