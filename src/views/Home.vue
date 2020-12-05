@@ -34,7 +34,7 @@
     <div class="mt-6">
       <span class="font-bold text-gray-400">Folders</span>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 mt-3">
-        <MiniCard v-for="(item, i) in 10" :key="i"
+        <MiniCard v-for="(item, i) in 18" :key="i"
           ><template #icon
             ><i class="bx bxs-folder-minus bx-sm text-gray-400"></i></template
           >Folder {{ i }}</MiniCard
