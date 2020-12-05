@@ -15,11 +15,11 @@
         </div>
       </div>
       <div class="p-7">
-        <InputApp v-model="hola" placeholder="Email"></InputApp>
-        <InputApp
-          type="password"
-          class="mt-3"
-          placeholder="Password"
+        <InputApp v-model="hola" placeholder="Email"
+          ><template #icon><i class="bx bx-user"></i></template
+        ></InputApp>
+        <InputApp type="password" class="mt-3" placeholder="Password"
+          ><template #icon><i class="bx bx-braille"></i></template
         ></InputApp>
         <ButtonApp :load="isLoad" @click="test" class="mt-3">Login</ButtonApp>
       </div>
@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       isLoad: false,
-      hola: ''
+      hola: "",
     };
   },
   components: {
@@ -49,6 +49,18 @@ export default {
         this.isLoad = false;
       }, 2000);
     },
+  },
+  metaInfo: {
+    titleTemplate: "%s | Login",
+    meta: [
+      { charset: "utf-8" },
+      {
+        head: "ssr",
+        hid: "description",
+        name: "description",
+        content: "Login with kisscloud",
+      },
+    ],
   },
 };
 </script>

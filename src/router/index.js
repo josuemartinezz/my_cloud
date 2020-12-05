@@ -19,6 +19,24 @@ const routes = [{
         name: 'Login',
         component: () =>
             import ('../views/Login.vue')
+    },
+    {
+        path: '/shared',
+        name: 'Shared',
+        component: () =>
+            import ('../views/Shared.vue')
+    },
+    {
+        path: '/starred',
+        name: 'Starred',
+        component: () =>
+            import ('../views/Starred.vue')
+    },
+    {
+        path: '/trash',
+        name: 'Trash',
+        component: () =>
+            import ('../views/Trash.vue')
     }
 ]
 

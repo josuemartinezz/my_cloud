@@ -55,6 +55,13 @@ export default {
       }, 2000);
     },
   },
+  metaInfo: {
+    titleTemplate: "%s | Register",
+    meta: [
+      { charset: "utf-8" },
+      { head: 'ssr', hid: "description", name: "description", content: "Register a new account with kisscloud" },
+    ],
+  },
 };
 </script>
 
